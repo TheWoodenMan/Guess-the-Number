@@ -30,6 +30,7 @@ let secretNumber = Math.trunc(Math.random() * 20) + 1;
 document.querySelector('.message').textContent = 'Guess the Number?! 🧮';
 
 let score = 20;
+let highScore = 0;
 
 // Reset event listener and button control.
 
@@ -53,13 +54,24 @@ document.querySelector('.check').addEventListener('click', function () {
   if (!guess) {
     document.querySelector('.message').textContent = 'No number! 🚫';
 
-    // When player wins.
-  } else if (guess === secretNumber) {
+    // When the guess is not between 1 and 20.
+  } else if (guess > 20 || guess < 1) {
+    document.querySelector('.message').textContent =
+      'Must be between 1 & 20 ❌';
+  }
+
+  // When player wins.
+  else if (guess === secretNumber) {
     document.querySelector('.message').textContent = '🥳 Correct Number! 🎊';
     document.querySelector('.number').textContent = secretNumber;
 
     document.querySelector('body').style.backgroundColor = '#60b347';
     document.querySelector('.number').style.width = '30rem';
+
+    if (score > highScore) {
+      highScore = score;
+      document.querySelector('.highscore').textContent = highScore;
+    }
   } else if (score > 1) {
     // When guess is too high.
     if (guess > secretNumber) {
