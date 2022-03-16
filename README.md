@@ -18,7 +18,7 @@ aka DOM (Document Object Model) Manipulation.
 // .textcontent refers to the text value of that element. .value refers to the number value.
 // Dont forget to include the dot .
 
-// <-- Author Notes -->
+// <-- Code Notes -->
 
 // addEventListener sits and waits for condition (click) to happen,
 // when it does happen the function detailed in part 2 of the expression
